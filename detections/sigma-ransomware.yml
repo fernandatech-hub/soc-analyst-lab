@@ -1,0 +1,24 @@
+title: Possible Ransomware Activity
+id: a91f8e10-7782-4aaa-bb22-ransom001
+status: experimental
+description: Detects possible ransomware behavior
+author: Fernanda
+date: 2026/05/17
+
+logsource:
+  product: windows
+  category: process_creation
+
+detection:
+  selection:
+    Image|contains:
+      - 'vssadmin.exe'
+      - 'wbadmin.exe'
+      - 'bcdedit.exe'
+  condition: selection
+
+level: high
+
+tags:
+  - attack.ransomware
+  - attack.t1486
