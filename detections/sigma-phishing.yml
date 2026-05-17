@@ -1,0 +1,24 @@
+title: Suspicious Phishing Email Detection
+id: 7f1d2b20-1234-4abc-9a12-phishing001
+status: experimental
+description: Detects suspicious phishing email activity
+author: Fernanda
+date: 2026/05/17
+
+logsource:
+  product: exchange
+  service: email
+
+detection:
+  selection:
+    Subject|contains:
+      - 'Urgent'
+      - 'Password Reset'
+      - 'Verify Account'
+  condition: selection
+
+level: medium
+
+tags:
+  - attack.phishing
+  - attack.t1566
